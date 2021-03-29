@@ -22,5 +22,10 @@ export const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6{margin:0; font-size:inherit; font-weight:inherit;}
   p{margin:0;}
   cite {font-style:normal;}
-  fieldset{border-width:0; padding:0; margin:0;}
+  fieldset{border-width:0; padding:0; margin:0;
+  
+    .pt-1 {
+      padding-top: 1rem;
+    }
+  }
 `;

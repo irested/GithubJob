@@ -6,8 +6,10 @@ export const Container = styled.div`
   flex-flow: wrap;
   justify-content: center;
   max-width: 100%;
-  padding: 42px 0;
-  ${(props) => props.withBackground && 'background: url(/images/backgroundImg.png)'};
+  ${({ withBackground }) =>
+    withBackground
+      ? 'background: url(/images/backgroundImg.png); padding: 42px 0;'
+      : 'margin-bottom: 1.5rem; '}
   background-size: cover;
   border-radius: 8px;
   grid-area: head;
@@ -16,8 +18,9 @@ export const Container = styled.div`
 export const Inner = styled.div`
   display: flex;
   flex-flow: wrap;
-  flex: 0.8;
+  ${({ fullWidth }) => (fullWidth ? 'flex: 1;' : 'flex: 0.8;')}
   align-items: center;
+  min-height: 48px;
   padding: 3px;
   background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
@@ -30,8 +33,18 @@ export const Inner = styled.div`
   }
 
   @media (min-width: 768px) {
-    flex: 0.65;
+    ${({ fullWidth }) => (fullWidth ? 'flex: 1;' : 'flex: 0.65;')}
   }
+`;
+
+export const Title = styled.h3`
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #b9bdcf;
+  margin-bottom: 15px;
 `;
 
 export const Input = styled.input`
@@ -61,7 +74,7 @@ export const Button = styled.button`
   text-align: center;
   font-size: 16px;
 
-  @media(max-width: 346px){
+  @media(max-width: 359px){
     max-width: 100%;
     flex: 1;
   }

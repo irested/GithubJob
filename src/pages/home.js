@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderContainer from '../containers/header';
+import { Header, Aside } from '../containers';
 
 export default function home() {
   // useEffect hydrate data
   return (
     <Grid>
-      <HeaderContainer />
+      <Header />
+      <Aside />
     </Grid>
   );
 }
@@ -19,8 +20,8 @@ const Grid = styled.div`
     '. aside .'
     '. main .';
   grid-auto-rows: min-content;
-  grid-template-columns: minmax(0, 1fr) min(65ch, calc(100% - 10px)) minmax(0, 1fr);
-  grid-column-gap: 5px;
+  grid-template-columns: minmax(0, 1fr) min(65ch, calc(100% - 24px)) minmax(0, 1fr);
+  grid-column-gap: 12px;
 
   @media (min-width: 768px) {
     grid-template-areas:

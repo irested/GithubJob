@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: head;
+  margin-bottom: 42px;
 `;
 
 export const Logo = styled.h2`
