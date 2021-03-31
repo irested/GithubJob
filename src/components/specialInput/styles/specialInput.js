@@ -6,16 +6,6 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 15px;
-
-  p {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    color: #334680;
-    margin-left: 15px;
-  }
 `;
 
 export const Input = styled.input`
@@ -35,4 +25,14 @@ export const Input = styled.input`
     border: 1px solid #B9BDCF;
     border-radius: 2px;
     `}
+`;
+
+export const Title = styled.p`
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #334680;
+  margin-left: 15px;
 `;

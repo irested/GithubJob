@@ -4,7 +4,10 @@ import { SpecialInput, Search } from '../components';
 export default function aside() {
   return (
     <div style={{ gridArea: 'aside' }}>
-      <SpecialInput iptName="Full Time" iptType="checkbox" />
+      <SpecialInput style={{ marginBottom: '32px' }}>
+        <SpecialInput.Input iptName="Full Time" iptType="checkbox" />
+        <SpecialInput.Title>Full Time</SpecialInput.Title>
+      </SpecialInput>
       <Search.Title>Location</Search.Title>
       <Search fullWidth>
         <Search.Input
@@ -14,10 +17,22 @@ export default function aside() {
           iconClass="las la-globe-europe"
         />
       </Search>
-      <SpecialInput iptName="London" iptType="radio" />
-      <SpecialInput iptName="Amsterdam" iptType="radio" />
-      <SpecialInput iptName="New York" iptType="radio" />
-      <SpecialInput iptName="Berlin" iptType="radio" />
+      <SpecialInput>
+        <SpecialInput.Input iptName="London" iptType="radio" />
+        <SpecialInput.Title>London</SpecialInput.Title>
+      </SpecialInput>
+      <SpecialInput>
+        <SpecialInput.Input iptName="Amsterdam" iptType="radio" />
+        <SpecialInput.Title>Amsterdam</SpecialInput.Title>
+      </SpecialInput>
+      <SpecialInput>
+        <SpecialInput.Input iptName="New York" iptType="radio" />
+        <SpecialInput.Title>New York</SpecialInput.Title>
+      </SpecialInput>
+      <SpecialInput>
+        <SpecialInput.Input iptName="Berlin" iptType="radio" />
+        <SpecialInput.Title>Berlin</SpecialInput.Title>
+      </SpecialInput>
     </div>
   );
 }

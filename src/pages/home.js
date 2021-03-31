@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header, Aside } from '../containers';
+import useFetch from '../hooks/use-fetch';
+import { Header, Aside, Jobs } from '../containers';
 
 export default function home() {
   // useEffect hydrate data
+  const data = useFetch('https://jobs.github.com/positions.json?location=new+york');
+
   return (
     <Grid>
       <Header />
       <Aside />
+      <Jobs data={data} />
     </Grid>
   );
 }

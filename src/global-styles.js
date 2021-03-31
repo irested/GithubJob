@@ -23,9 +23,5 @@ export const GlobalStyles = createGlobalStyle`
   p{margin:0;}
   cite {font-style:normal;}
   fieldset{border-width:0; padding:0; margin:0;
-  
-    .pt-1 {
-      padding-top: 1rem;
-    }
   }
 `;
