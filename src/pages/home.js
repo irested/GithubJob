@@ -11,7 +11,7 @@ export default function home() {
     <Grid>
       <Header />
       <Aside />
-      <Jobs data={data} />
+      <Jobs jobs={data} />
     </Grid>
   );
 }

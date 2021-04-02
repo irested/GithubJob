@@ -1,11 +1,18 @@
 import React from 'react';
-import Home from './pages/home';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
+import { Home, JobDetails } from './pages';
 
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Router>
+      <Route exact path={ROUTES.HOME}>
+        <Home />
+      </Route>
+      <Route path={ROUTES.JOB_DETAILS}>
+        <JobDetails />
+      </Route>
+    </Router>
   );
 }
 

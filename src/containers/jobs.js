@@ -1,43 +1,46 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '../components';
 // import { Card } from '../components';
 
-export default function Jobs(jobs) {
+export default function Jobs(props) {
   const [loading, setLoading] = useState(false);
-  const { data } = jobs;
+  const { jobs } = props;
 
   useEffect(() => {
-    return data.length === 0 ? setLoading(true) : setLoading(false);
-  }, [data]);
+    return jobs.length === 0 ? setLoading(true) : setLoading(false);
+  }, [jobs]);
 
   if (!loading) {
     return (
       <Card style={{ gridArea: 'main' }}>
-        {data.map((post) => {
+        {jobs.map((job) => {
           return (
-            <Card.Entities key={post.id}>
-              <Card.LogoDiv>
-                <Card.Logo src={post.company_logo} />
-              </Card.LogoDiv>
-              <Card.JobInfos>
-                <Card.CompanyName>{post.company}</Card.CompanyName>
-                <Card.Title>{post.title}</Card.Title>
-                <Card.Meta>
-                  {post.type === 'Full Time' ? <Card.FullTime /> : null}
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexFlow: 'row wrap',
-                      alignItems: 'flex-end',
-                    }}
-                  >
-                    <Card.City>{post.location}</Card.City>
-                    <Card.TimePosted>{post.created_at}</Card.TimePosted>
-                  </div>
-                </Card.Meta>
-              </Card.JobInfos>
-            </Card.Entities>
+            <Link to={`/details/${job.id}`}>
+              <Card.Entities Link key={job.id}>
+                <Card.LogoDiv>
+                  <Card.Logo src={job.company_logo} />
+                </Card.LogoDiv>
+                <Card.JobInfos>
+                  <Card.CompanyName>{job.company}</Card.CompanyName>
+                  <Card.Title>{job.title}</Card.Title>
+                  <Card.Meta>
+                    {job.type === 'Full Time' ? <Card.FullTime /> : null}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexFlow: 'row wrap',
+                        alignItems: 'flex-end',
+                      }}
+                    >
+                      <Card.City>{job.location}</Card.City>
+                      <Card.TimePosted>{job.created_at}</Card.TimePosted>
+                    </div>
+                  </Card.Meta>
+                </Card.JobInfos>
+              </Card.Entities>
+            </Link>
           );
         })}
       </Card>
