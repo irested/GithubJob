@@ -1,38 +1,57 @@
 import React from 'react';
-import { SpecialInput, Search } from '../components';
+import { SpecialInput, Search, Aside } from '../components';
 
-export default function aside() {
+export default function aside({
+  searchTerms,
+  handleRadio,
+  handleChange,
+  handleCheckbox,
+  handleSubmit,
+}) {
+  const citysIpt = ['London', 'Amsterdam', 'New York', 'Berlin'];
+
   return (
-    <div style={{ gridArea: 'aside' }}>
+    <Aside>
       <SpecialInput style={{ marginBottom: '32px' }}>
-        <SpecialInput.Input iptName="Full Time" iptType="checkbox" />
-        <SpecialInput.Title>Full Time</SpecialInput.Title>
-      </SpecialInput>
-      <Search.Title>Location</Search.Title>
-      <Search fullWidth>
         <Search.Input
-          name="searchByLocation"
-          type="text"
-          placeholder="City, state, zip code or country"
-          iconClass="las la-globe-europe"
+          id="fullTime"
+          name="full_time"
+          type="checkbox"
+          onChange={(e) => handleCheckbox(e)}
         />
+        <Search.Label htmlFor="fullTime" aria-describedby="label">
+          Full Time
+        </Search.Label>
+      </SpecialInput>
+      <Search fdirection="column" onSubmit={(e) => handleSubmit(e)}>
+        <Search.Title>Location</Search.Title>
+        <Search.Inner>
+          <Search.Input
+            name="location"
+            type="text"
+            placeholder="City, state, zip code or country"
+            autoComplete="off"
+            iconClass="las la-globe-europe"
+            onChange={(e) => handleChange(e)}
+          />
+        </Search.Inner>
       </Search>
-      <SpecialInput>
-        <SpecialInput.Input iptName="London" iptType="radio" />
-        <SpecialInput.Title>London</SpecialInput.Title>
-      </SpecialInput>
-      <SpecialInput>
-        <SpecialInput.Input iptName="Amsterdam" iptType="radio" />
-        <SpecialInput.Title>Amsterdam</SpecialInput.Title>
-      </SpecialInput>
-      <SpecialInput>
-        <SpecialInput.Input iptName="New York" iptType="radio" />
-        <SpecialInput.Title>New York</SpecialInput.Title>
-      </SpecialInput>
-      <SpecialInput>
-        <SpecialInput.Input iptName="Berlin" iptType="radio" />
-        <SpecialInput.Title>Berlin</SpecialInput.Title>
-      </SpecialInput>
-    </div>
+      {citysIpt.map((city) => (
+        <SpecialInput key={city}>
+          <Search.Input
+            id={`${city}Ipt`}
+            name="location"
+            type="radio"
+            value={`${city}`}
+            readOnly
+            checked={city === searchTerms.location}
+            onClick={(e) => handleRadio(e)}
+          />
+          <Search.Label htmlFor={`${city}Ipt`} aria-describedby="label">
+            {city}
+          </Search.Label>
+        </SpecialInput>
+      ))}
+    </Aside>
   );
 }

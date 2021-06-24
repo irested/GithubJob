@@ -13,21 +13,10 @@ export const Input = styled.input`
   width: 18px;
   height: 18px;
   margin-left: 15px;
-  ${(props) =>
-    props.iptType === 'radio' &&
-    `
-      border: 1px solid #B9BDCF;
-      border-radius: 59px;
-      `}
-  ${(props) =>
-    props.iptType === 'checkbox' &&
-    `
-    border: 1px solid #B9BDCF;
-    border-radius: 2px;
-    `}
+  border: 1px solid #b9bdcf;
 `;
 
-export const Title = styled.p`
+export const Label = styled.label`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
